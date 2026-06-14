@@ -14,7 +14,7 @@ function setupVoiceInput() {
 
     if (!SpeechRecognition) {
         voiceButton.disabled = true;
-        voiceButton.innerHTML = '<i class="fas fa-microphone-slash"></i> Voice not supported';
+        voiceButton.textContent = 'Voice not supported';
         return;
     }
 
@@ -33,7 +33,7 @@ function setupVoiceInput() {
     };
 
     recognition.onend = () => {
-        voiceButton.innerHTML = '<i class="fas fa-microphone"></i> Use Voice Input';
+        voiceButton.textContent = 'Use Voice Input';
     };
 }
 
@@ -53,7 +53,7 @@ function checkModelStatus() {
 function startVoice() {
     if (!recognition) return;
 
-    document.getElementById('voiceBtn').innerHTML = '<i class="fas fa-stop"></i> Listening...';
+    document.getElementById('voiceBtn').textContent = 'Listening...';
     updateVoiceStatus('Listening...', 'info');
     recognition.start();
 }
@@ -145,8 +145,10 @@ function renderSymptoms(symptoms) {
         const tag = document.createElement('div');
         tag.className = 'symptom-tag';
 
-        const icon = document.createElement('i');
-        icon.className = 'fas fa-check';
+        const icon = document.createElement('span');
+        icon.className = 'check-mark';
+        icon.setAttribute('aria-hidden', 'true');
+        icon.textContent = '+';
         tag.appendChild(icon);
         tag.appendChild(document.createTextNode(` ${symptom}`));
         symptomsList.appendChild(tag);

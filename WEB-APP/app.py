@@ -12,6 +12,7 @@ import json
 import os
 import pickle
 import re
+import socket
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -328,5 +329,17 @@ def feedback() -> Any:
     return jsonify({"message": "Thank you for your feedback"})
 
 
+def get_local_ip() -> str:
+    try:
+        return socket.gethostbyname(socket.gethostname())
+    except OSError:
+        return "127.0.0.1"
+
+
 if __name__ == "__main__":
-    app.run(debug=False, host="127.0.0.1", port=5000)
+    host = os.environ.get("MEDAI_HOST", "0.0.0.0")
+    port = int(os.environ.get("MEDAI_PORT", "5000"))
+    print("MedAI offline/local mode")
+    print(f"Open on this computer: http://127.0.0.1:{port}")
+    print(f"Open from same Wi-Fi/hotspot: http://{get_local_ip()}:{port}")
+    app.run(debug=False, host=host, port=port)

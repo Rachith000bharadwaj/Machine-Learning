@@ -11,12 +11,17 @@
 ## Improvements Made
 
 - Added `WEB-APP/app.py` as a real Flask application.
-- Connected the web app to the saved backend TensorFlow model, label encoder, and 134-symptom vocabulary.
+- Connected the web app to the saved backend TensorFlow model, label encoder, and 137-symptom vocabulary.
 - Updated the web interface to show matched symptom evidence instead of unsupported EHR case counts.
 - Added `requirements.txt`, `.gitignore`, a professional `README.md`, and reproducible scripts.
 - Added `scripts/evaluate_model.py` for saved-model verification.
 - Added `scripts/train_model.py` so the model can be rebuilt from `DATASETS/Training.csv`.
 - Documented current implementation separately from future/experimental features.
+- Added light project-focused dataset cleaning in `scripts/clean_datasets.py`.
+- Regenerated cleaned training/testing files under `DATASETS/cleaned/`.
+- Removed placeholder symptom values such as `0` from the cleaned vocabulary before final training.
+- Removed the online icon stylesheet from the web page so the UI can load without internet.
+- Added `run_offline.bat` and local-network host support so ngrok is not required.
 
 ## How to Present the Project
 

@@ -8,16 +8,16 @@ git add .
 git commit -m "Polish ML medical diagnosis assistant project"
 ```
 
-Create a new GitHub repository named:
+Use this GitHub repository:
 
 ```text
-ml-powered-medical-diagnosis-assistant
+https://github.com/Rachith000bharadwaj/Machine-Learning
 ```
 
 Then connect and push:
 
 ```bash
-git remote add origin https://github.com/YOUR_USERNAME/ml-powered-medical-diagnosis-assistant.git
+git remote add origin https://github.com/Rachith000bharadwaj/Machine-Learning.git
 git push -u origin main
 ```
 

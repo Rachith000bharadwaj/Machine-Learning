@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedAI Diagnosis Assistant</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <i class="fas fa-heartbeat"></i>
+                <span class="icon icon-medical" aria-hidden="true"></span>
                 <span>MedAI Diagnosis Assistant</span>
             </div>
             <div id="modelStatus" class="model-status">Checking model...</div>
@@ -28,16 +27,16 @@
     <main class="main-content">
         <div class="container">
             <section class="panel" id="inputSection">
-                <h2><i class="fas fa-stethoscope"></i> Describe Your Symptoms</h2>
+                <h2><span class="icon icon-medical" aria-hidden="true"></span> Describe Your Symptoms</h2>
                 <textarea id="symptoms" rows="6" placeholder="e.g., I have fever, persistent cough, and chest pain for 3 days..."></textarea>
                 
                 <button id="voiceBtn" class="btn-voice">
-                    <i class="fas fa-microphone"></i> Use Voice Input
+                    Use Voice Input
                 </button>
                 <div id="voiceStatus"></div>
                 
                 <button id="analyzeBtn" class="btn-primary">
-                    <i class="fas fa-magnifying-glass-chart"></i> Analyze Symptoms
+                    Analyze Symptoms
                 </button>
 
                 <div class="examples">
@@ -57,7 +56,7 @@
 
             <section id="resultsSection" style="display: none;">
                 <div class="panel">
-                    <h2><i class="fas fa-file-medical"></i> Diagnosis Report</h2>
+                    <h2><span class="icon icon-report" aria-hidden="true"></span> Diagnosis Report</h2>
                     
                     <div class="diagnosis-card">
                         <p class="label">Primary Diagnosis</p>
@@ -66,21 +65,21 @@
 
                     <div class="stats-row">
                         <div class="stat">
-                            <i class="fas fa-chart-line"></i>
+                            <span class="icon icon-score" aria-hidden="true"></span>
                             <div>
                                 <p>Confidence</p>
                                 <h4 id="confidenceScore">-</h4>
                             </div>
                         </div>
                         <div class="stat">
-                            <i class="fas fa-exclamation-triangle"></i>
+                            <span class="icon icon-alert" aria-hidden="true"></span>
                             <div>
                                 <p>Urgency</p>
                                 <h4 id="urgencyBadge">-</h4>
                             </div>
                         </div>
                         <div class="stat">
-                            <i class="fas fa-clipboard-check"></i>
+                            <span class="icon icon-evidence" aria-hidden="true"></span>
                             <div>
                                 <p>Evidence</p>
                                 <h4 id="evidenceCount">-</h4>
@@ -89,31 +88,31 @@
                     </div>
 
                     <div class="section">
-                        <h4><i class="fas fa-list-check"></i> Matched Symptoms</h4>
+                        <h4><span class="icon icon-list" aria-hidden="true"></span> Matched Symptoms</h4>
                         <div id="symptomsList"></div>
                     </div>
 
                     <div class="section action-box">
-                        <h4><i class="fas fa-clipboard-list"></i> Recommended Action</h4>
+                        <h4><span class="icon icon-action" aria-hidden="true"></span> Recommended Action</h4>
                         <p id="actionText">-</p>
                     </div>
 
                     <div class="section">
-                        <h4><i class="fas fa-ranking-star"></i> Alternative Diagnoses</h4>
+                        <h4><span class="icon icon-rank" aria-hidden="true"></span> Alternative Diagnoses</h4>
                         <div id="predictionsList"></div>
                     </div>
 
                     <div class="disclaimer">
-                        <i class="fas fa-exclamation-circle"></i>
+                        <span class="icon icon-alert" aria-hidden="true"></span>
                         <p><strong>Medical disclaimer:</strong> This is an educational AI-assisted preliminary diagnosis. Always consult a qualified healthcare professional.</p>
                     </div>
 
                     <div class="result-actions">
                         <button onclick="newAnalysis()" class="btn-secondary">
-                            <i class="fas fa-rotate-left"></i> New Analysis
+                            New Analysis
                         </button>
                         <button onclick="printReport()" class="btn-primary btn-inline">
-                            <i class="fas fa-print"></i> Print Report
+                            Print Report
                         </button>
                     </div>
 

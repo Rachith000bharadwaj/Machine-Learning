@@ -1,4 +1,4 @@
-"""Evaluate the saved medical diagnosis model on DATASETS/Testing.csv."""
+"""Evaluate the saved medical diagnosis model."""
 
 from __future__ import annotations
 
@@ -17,7 +17,8 @@ from sklearn.metrics import accuracy_score, precision_recall_fscore_support
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 MODEL_DIR = PROJECT_ROOT / "BACKEND" / "models"
-DATASET_PATH = PROJECT_ROOT / "DATASETS" / "Testing.csv"
+DEFAULT_DATASET_PATH = PROJECT_ROOT / "DATASETS" / "Testing.csv"
+CLEANED_DATASET_PATH = PROJECT_ROOT / "DATASETS" / "cleaned" / "Testing_cleaned.csv"
 
 
 def load_artifacts():
@@ -33,7 +34,8 @@ def load_artifacts():
 
 def main() -> None:
     model, label_encoder, vocabulary = load_artifacts()
-    df = pd.read_csv(DATASET_PATH)
+    dataset_path = CLEANED_DATASET_PATH if CLEANED_DATASET_PATH.exists() else DEFAULT_DATASET_PATH
+    df = pd.read_csv(dataset_path)
 
     missing_columns = [column for column in vocabulary if column not in df.columns]
     if missing_columns:
@@ -55,6 +57,7 @@ def main() -> None:
 
     print("Saved Model Evaluation")
     print("======================")
+    print(f"Dataset: {dataset_path.relative_to(PROJECT_ROOT)}")
     print(f"Samples: {len(df)}")
     print(f"Classes: {len(label_encoder.classes_)}")
     print(f"Accuracy: {accuracy:.4f}")

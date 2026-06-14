@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local app state
+WEB-APP/logs/
+WEB-APP/instance/
+WEB-APP/models/
+WEB-APP/1.App.ipynb
+WEB-APP/2.home.html
+WEB-APP/3.main.html
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+tmp/
+output/
+
+# Local editor and OS files
+.vscode/
+.idea/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
+
+# Local tunnels and binaries
+*.exe
+ngrok.exe
+
+# Large raw datasets not required for the default demo
+DATASETS/Final_Augmented_dataset_Diseases_and_Symptoms.csv/
+DATASETS/Covid Data.csv/
+DATASETS/syditriage.csv/
+DATASETS/thyroid_cancer_risk_data.csv
+
+# Model experiment outputs
+*.log
+mlruns/

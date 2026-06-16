@@ -20,7 +20,7 @@ This model predicts a disease label from binary symptom features. It is used by 
 ## Inputs
 
 - Text symptoms entered by the user.
-- The app maps recognized symptom phrases to the 137 binary symptom features used during training.
+- The app maps recognized symptom phrases to the 134 binary symptom features used during training.
 
 ## Outputs
 
@@ -32,13 +32,11 @@ This model predicts a disease label from binary symptom features. It is used by 
 
 ## Data
 
-The saved model artifacts are based on `DATASETS/cleaned/Training_cleaned.csv`, using `prognosis` as the disease target and symptom columns as binary features. `DATASETS/cleaned/Testing_cleaned.csv` is used by `scripts/evaluate_model.py`.
-
-The cleaned files are produced by `scripts/clean_datasets.py`. This is light project-focused cleaning only: it combines the app-compatible symptom CSVs, fixes disease-name spelling variants, and removes duplicate disease-symptom rows.
+The saved model artifacts are based on `DATASETS/Training.csv`, using `prognosis` as the disease target and symptom columns as binary features. `DATASETS/Testing.csv` is used by `scripts/evaluate_model.py`.
 
 ## Current Metrics
 
-The saved model currently evaluates at 100 percent accuracy, precision, recall, and F1-score on the included clean test file of 123 samples. Training accuracy is 99.49 percent and validation accuracy is 98.98 percent for the saved final model.
+The saved model currently evaluates at 100 percent accuracy, precision, recall, and F1-score on the included clean test file.
 
 This should be interpreted carefully because the test file is small and structured. It does not prove real-world clinical accuracy.
 
@@ -48,7 +46,6 @@ This should be interpreted carefully because the test file is small and structur
 - The model does not use laboratory results, imaging, vital signs, or doctor notes.
 - Confidence scores are model probabilities, not calibrated medical certainty.
 - Spark EHR validation and Android offline deployment are planned extensions, not part of the default runnable app.
-- The Flask app can run offline on the local computer or local network, but package installation must be completed beforehand.
 
 ## Safety
 

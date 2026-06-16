@@ -1,4 +1,4 @@
-"""Train the symptom-to-disease TensorFlow model."""
+"""Train the symptom-to-disease TensorFlow model from DATASETS/Training.csv."""
 
 from __future__ import annotations
 
@@ -14,8 +14,7 @@ from sklearn.preprocessing import LabelEncoder
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DATASET_PATH = PROJECT_ROOT / "DATASETS" / "Training.csv"
-CLEANED_DATASET_PATH = PROJECT_ROOT / "DATASETS" / "cleaned" / "Training_cleaned.csv"
+DATASET_PATH = PROJECT_ROOT / "DATASETS" / "Training.csv"
 MODEL_DIR = PROJECT_ROOT / "BACKEND" / "models"
 DISEASE_COLUMN = "prognosis"
 RANDOM_STATE = 42
@@ -44,12 +43,9 @@ def main() -> None:
     tf.keras.utils.set_random_seed(RANDOM_STATE)
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
 
-    dataset_path = CLEANED_DATASET_PATH if CLEANED_DATASET_PATH.exists() else DEFAULT_DATASET_PATH
-    print(f"Using dataset: {dataset_path}")
-
-    df = pd.read_csv(dataset_path)
+    df = pd.read_csv(DATASET_PATH)
     if DISEASE_COLUMN not in df.columns:
-        raise ValueError(f"Expected target column '{DISEASE_COLUMN}' in {dataset_path}")
+        raise ValueError(f"Expected target column '{DISEASE_COLUMN}' in {DATASET_PATH}")
 
     class_counts = df[DISEASE_COLUMN].value_counts()
     rare_classes = class_counts[class_counts < 2].index
@@ -100,7 +96,6 @@ def main() -> None:
         json.dump(vocabulary, f, indent=2)
 
     summary = {
-        "dataset_path": str(dataset_path.relative_to(PROJECT_ROOT)),
         "total_diseases": int(len(label_encoder.classes_)),
         "total_symptoms": int(len(symptom_columns)),
         "training_samples": int(len(X_train)),

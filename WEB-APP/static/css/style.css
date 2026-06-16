@@ -52,49 +52,9 @@ body {
     font-weight: 700;
 }
 
-.icon {
-    width: 1.35em;
-    height: 1.35em;
-    border-radius: 50%;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto;
-    background: rgba(15, 118, 110, 0.12);
+.nav-brand i {
     color: var(--primary);
-    font-size: 0.95rem;
-    font-weight: 800;
-    line-height: 1;
-}
-
-.icon-medical::before {
-    content: "+";
-}
-
-.icon-report::before {
-    content: "#";
-}
-
-.icon-score::before {
-    content: "%";
-}
-
-.icon-alert::before {
-    content: "!";
-}
-
-.icon-evidence::before,
-.icon-list::before,
-.icon-action::before {
-    content: "/";
-}
-
-.icon-rank::before {
-    content: "1";
-}
-
-.nav-brand .icon {
-    font-size: 1.2rem;
+    font-size: 1.7rem;
 }
 
 .model-status {
@@ -155,10 +115,10 @@ body {
     font-size: 1.45rem;
 }
 
-.panel h2 .icon,
-.panel h4 .icon {
+.panel h2 i,
+.panel h4 i {
+    color: var(--primary);
     margin-right: 8px;
-    vertical-align: middle;
 }
 
 textarea {
@@ -340,8 +300,9 @@ button:disabled {
     gap: 14px;
 }
 
-.stat .icon {
+.stat i {
     font-size: 1.7rem;
+    color: var(--primary);
 }
 
 .stat p {
@@ -385,9 +346,8 @@ button:disabled {
     color: var(--ink);
 }
 
-.symptom-tag .check-mark {
+.symptom-tag i {
     color: var(--success);
-    font-weight: 800;
 }
 
 .action-box {
@@ -432,11 +392,10 @@ button:disabled {
     margin-bottom: 18px;
 }
 
-.disclaimer .icon {
+.disclaimer i {
     color: var(--warning);
     font-size: 1.35rem;
     margin-top: 2px;
-    background: rgba(180, 83, 9, 0.12);
 }
 
 .disclaimer p {

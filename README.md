@@ -1,7 +1,5 @@
 # ML-Powered Medical Diagnosis Assistant
 
-Repository: [Rachith000bharadwaj/Machine-Learning](https://github.com/Rachith000bharadwaj/Machine-Learning)
-
 An educational machine learning project that predicts a preliminary diagnosis from patient-reported symptoms. The current runnable system includes a Flask web app, a trained TensorFlow classifier, confidence scores, matched symptom evidence, urgency labels, recommended actions, and printable reports.
 
 This project is not a medical device and must not be used as a replacement for qualified healthcare advice.

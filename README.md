@@ -1,125 +1,115 @@
 # ML-Powered Medical Diagnosis Assistant
 
-An educational machine learning project that predicts a preliminary diagnosis from patient-reported symptoms. `PPT-2.pdf` is the final presentation reference for the current project version. The runnable system includes a Flask web app, a trained TensorFlow classifier, confidence scores, matched symptom evidence, urgency labels, recommended actions, Spark-backed aggregate validation, AES-256 encrypted local event logs, and printable reports.
+An educational clinical decision-support project that predicts a preliminary
+diagnosis from patient-reported symptoms. The system is designed to work on a
+single laptop or a local village health-point network, including environments
+where internet access is unavailable.
 
-This project is not a medical device and must not be used as a replacement for qualified healthcare advice.
+**Configured public address:** [demetra-varietal-cindi.ngrok-free.dev](https://demetra-varietal-cindi.ngrok-free.dev)
+(available while the project tunnel is running)
 
-## Current Implementation
+**Final project report:** [Report.pdf](./Report.pdf)
 
-- Symptom-based disease prediction using a saved TensorFlow model.
-- 134 symptom features and 42 disease classes from the training artifacts.
-- Flask web app with text input, browser voice input support, ranked predictions, urgency level, EHR-style evidence, and printable diagnosis report.
-- Village-point mode that runs on the local laptop or a same-network hotspot without internet-only frontend assets.
-- Spark-backed aggregate validation index built from cleaned public clinical-style datasets.
-- COVID screening support for high-fever/cough cases with loss of smell or taste.
-- Fracture screening support backed by the cleaned fracture dataset.
-- AES-256-GCM encrypted local diagnosis and feedback event logs.
-- Repeatable evaluation script with accuracy, precision, recall, F1-score, confidence interval, confusion matrix, and mismatch logging.
-- Manual validation with 100+ comprehensive clinical scenario test cases.
-- Training script to rebuild the model from `DATASETS/Training.csv`, compare Logistic Regression, Random Forest, Gradient Boosting, SVM, and neural-network results, and save validation charts.
-- Clean GitHub structure with large raw datasets and local logs ignored.
+> This project is not a medical device. Its results must not replace diagnosis,
+> treatment, or advice from a qualified healthcare professional.
 
-## What Is Planned or Experimental
+## Project Highlights
 
-Older project material discusses Android deployment and offline native speech recognition. Those remain useful future directions. The current final-PPT implementation focuses on the Flask Web-App, browser voice input, Spark-backed aggregate validation, confidence scoring, encrypted local logging, and visual validation artifacts.
+- TensorFlow symptom classifier covering **42 disease classes** and **134
+  symptom features**.
+- Flask dashboard with typed symptom intake, confidence scores, ranked
+  predictions, matched evidence, urgency labels, recommended actions, and
+  printable reports.
+- Offline village-point workflow using local models, datasets, CSS, and
+  JavaScript.
+- Same-network access from phones or laptops through a local hotspot or LAN.
+- Spark-backed aggregate evidence index built from public clinical-style
+  datasets.
+- Additional COVID-19 differential and fracture-screening support.
+- AES-256-GCM encrypted local diagnosis and feedback logs.
+- Model comparison and repeatable evaluation scripts.
+- Validation with more than 100 clinical scenario test cases.
 
-Keeping this distinction clear makes the project stronger and more credible.
+## How It Works
 
-## Project Structure
-
-```text
-ML Project/
-  BACKEND/
-    models/
-      ml_model.h5
-      label_encoder.pkl
-      symptom_vocabulary.json
-      training_summary.json
-      evaluation_summary.json
-      ehr_validation_index.json
-      model_comparison.json
-      model_comparison.png
-      disease_distribution.png
-    *.ipynb
-  DATASETS/
-    Training.csv
-    Testing.csv
-    symptom_Description.csv
-    symptom_precaution.csv
-  WEB-APP/
-    app.py
-    templates/Index.html
-    static/css/style.css
-    static/js/app.js
-  scripts/
-    train_model.py
-    evaluate_model.py
-    build_ehr_validation_index.py
-  docs/
-    ML_PROCESS_SUMMARY.md
-    PPT2_ALIGNMENT.md
-    PROJECT_AUDIT.md
-    GITHUB_UPLOAD_STEPS.md
-  Overview.pdf
-  Report.pdf
-  PPT-1.pdf
-  PPT-2.pdf
+```mermaid
+flowchart LR
+    A[Patient symptoms] --> B[Symptom normalization]
+    B --> C[TensorFlow classifier]
+    C --> D[Ranked predictions]
+    D --> E[Evidence and urgency checks]
+    E --> F[Diagnosis dashboard and printable report]
 ```
 
-## Setup
+The application converts entered symptoms into the model vocabulary, predicts
+the most likely disease classes, and combines the result with aggregate
+evidence, urgency rules, precautions, and supporting symptom matches.
 
-Use Python 3.10 or newer.
+## Run Offline
 
-```bash
+### 1. Install the requirements
+
+Python 3.10 or newer is recommended.
+
+```powershell
 python -m venv .venv
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-## Run the Web App
+Dependencies must be installed once. After installation, typed symptom intake
+and diagnosis can run without internet access.
 
-```bash
-cd WEB-APP
-python app.py
+### 2. Start the village dashboard
+
+From the project root:
+
+```powershell
+.\run_village_dashboard.bat
 ```
 
-Open:
+Open the dashboard on the host computer:
 
 ```text
 http://127.0.0.1:5000
 ```
 
-The server now binds to `0.0.0.0` by default, so it can also be opened from another phone or laptop on the same hotspot or local network by using the host machine's IP address:
+The server binds to `0.0.0.0`, so another device connected to the same hotspot
+or local network can use:
 
 ```text
-http://<laptop-ip-address>:5000
+http://<host-computer-ip>:5000
 ```
 
-For the village-point offline workflow, run:
+Browser voice input depends on browser support and may require internet access.
+Typed symptom entry is the reliable offline workflow.
 
-```bat
-run_village_dashboard.bat
+## Run Manually
+
+```powershell
+cd WEB-APP
+python app.py
 ```
 
-This uses the local TensorFlow model, local datasets, local CSS/JS, and local encrypted logs. Internet is not required for typed symptom intake and diagnosis after the Python dependencies are installed. Browser voice input depends on browser support and may not be available offline, so typed symptom entry is the reliable offline path.
-
-## Run on the Public ngrok URL
-
-The presentation website URL is:
+Application readiness can be checked at:
 
 ```text
-https://demetra-varietal-cindi.ngrok-free.dev
+http://127.0.0.1:5000/api/health
 ```
 
-To publish the local dashboard to that URL, run:
+## Publish the Public Dashboard
 
-```bat
-run_public_ngrok_dashboard.bat
+To expose the local dashboard through the configured ngrok address:
+
+```powershell
+.\run_public_ngrok_dashboard.bat
 ```
 
-The public ngrok link requires internet. The offline village-point mode above does not.
+The public address works only while the local Flask application and ngrok
+tunnel are running. This option requires internet access and is separate from
+the offline village workflow.
 
-Try example symptoms such as:
+## Example Symptom Inputs
 
 ```text
 High fever, cough, chest pain, chills, fatigue, phlegm and breathlessness
@@ -127,48 +117,93 @@ Severe headache, nausea, acidity, stiff neck and visual disturbances
 Chest pain, breathlessness, sweating and vomiting
 ```
 
-## Evaluate the Saved Model
+## Current Evaluation
 
-From the project root:
+Evaluation on the project testing dataset produced:
 
-```bash
+| Metric | Score |
+| --- | ---: |
+| Accuracy | 0.9762 |
+| Precision | 0.9643 |
+| Recall | 0.9762 |
+| F1-score | 0.9683 |
+
+Run the saved-model evaluation from the project root:
+
+```powershell
 python scripts/evaluate_model.py
 ```
 
-Expected current result on `DATASETS/Testing.csv`:
+These values represent performance on a small, clean classroom dataset. They
+must not be interpreted as real-world clinical accuracy.
 
-```text
-Accuracy: 0.9762
-Precision: 0.9643
-Recall: 0.9762
-F1-score: 0.9683
-```
+## Rebuild Project Artifacts
 
-Important note: the test file is small and clean, so these metrics should be presented as classroom dataset performance, not real-world clinical performance.
+Retrain the classifier and regenerate model-comparison outputs:
 
-## Retrain the Model
-
-From the project root:
-
-```bash
+```powershell
 python scripts/train_model.py
 ```
 
-This regenerates the model artifacts in `BACKEND/models/`.
+Rebuild the aggregate validation index:
 
-## Build the Validation Index
-
-From the project root:
-
-```bash
+```powershell
 python scripts/build_ehr_validation_index.py
 ```
 
-This creates `BACKEND/models/ehr_validation_index.json`, an aggregate evidence index from the cleaned public datasets. It stores counts and symptom support only, not patient identifiers.
+Generated model and validation artifacts are saved under `BACKEND/models/`.
 
-## GitHub Notes
+## Project Structure
 
-The repository is configured to avoid uploading local logs, databases, `ngrok.exe`, and very large raw datasets. If you want to publish the large raw datasets, use Git LFS, Kaggle links, Google Drive, or a separate dataset release.
+```text
+Machine-Learning/
+|-- BACKEND/
+|   |-- models/
+|   |   |-- ml_model.h5
+|   |   |-- label_encoder.pkl
+|   |   |-- symptom_vocabulary.json
+|   |   |-- training_summary.json
+|   |   |-- evaluation_summary.json
+|   |   |-- ehr_validation_index.json
+|   |   |-- model_comparison.json
+|   |   |-- model_comparison.png
+|   |   `-- disease_distribution.png
+|   `-- *.ipynb
+|-- DATASETS/
+|-- WEB-APP/
+|   |-- app.py
+|   |-- templates/Index.html
+|   `-- static/
+|       |-- css/style.css
+|       `-- js/app.js
+|-- scripts/
+|   |-- train_model.py
+|   |-- evaluate_model.py
+|   `-- build_ehr_validation_index.py
+|-- docs/
+|-- Report.pdf
+|-- requirements.txt
+|-- run_village_dashboard.bat
+`-- run_public_ngrok_dashboard.bat
+```
+
+## Privacy and Security
+
+- Diagnosis and feedback events are encrypted locally with AES-256-GCM.
+- Local keys, logs, databases, temporary files, and tunnel binaries are
+  excluded from Git.
+- The aggregate validation index stores disease-level counts and symptom
+  support, not patient identifiers.
+
+## Limitations
+
+- The application provides educational decision support, not a confirmed
+  diagnosis.
+- Testing data is limited and does not represent every population or clinical
+  setting.
+- Voice recognition availability varies by browser and network connection.
+- Public ngrok access is temporary and requires the host computer to remain
+  online.
 
 ## Team
 
@@ -177,4 +212,5 @@ The repository is configured to avoid uploading local logs, databases, `ngrok.ex
 - Shreedhar M Kadkol - 24BDS076
 - Kishan Kumar Y - 24BDS031
 
-Guided by Dr. Utkarsh Mahadeo Khaire, Department of DSAI, IIIT Dharwad.
+Guided by **Dr. Utkarsh Mahadeo Khaire**, Department of Data Science and
+Artificial Intelligence, IIIT Dharwad.

@@ -5,126 +5,176 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedAI Diagnosis Assistant</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <i class="fas fa-heartbeat"></i>
-                <span>MedAI Diagnosis Assistant</span>
+    <header class="topbar">
+        <div class="brand">
+            <span class="brand-mark"><span class="app-icon" data-icon="+" aria-hidden="true"></span></span>
+            <div>
+                <strong>MedAI</strong>
+                <span>Diagnosis Assistant</span>
             </div>
-            <div id="modelStatus" class="model-status">Checking model...</div>
         </div>
-    </nav>
-
-    <section class="workspace-header">
-        <div class="container">
-            <h1>Preliminary Medical Diagnosis</h1>
-            <p>Symptom-based ML triage for educational healthcare support.</p>
+        <div id="modelStatus" class="status-pill">
+            <span class="status-dot"></span>
+            <span>Checking model</span>
         </div>
-    </section>
+    </header>
 
-    <main class="main-content">
-        <div class="container">
-            <section class="panel" id="inputSection">
-                <h2><i class="fas fa-stethoscope"></i> Describe Your Symptoms</h2>
-                <textarea id="symptoms" rows="6" placeholder="e.g., I have fever, persistent cough, and chest pain for 3 days..."></textarea>
-                
-                <button id="voiceBtn" class="btn-voice">
-                    <i class="fas fa-microphone"></i> Use Voice Input
+    <main class="workspace">
+        <section class="intake-panel" id="inputSection" aria-label="Patient symptoms">
+            <div class="section-heading">
+                <span class="icon-tile"><span class="app-icon" data-icon="IN" aria-hidden="true"></span></span>
+                <div>
+                    <p class="eyebrow">Case Intake</p>
+                    <h1>Medical Diagnosis</h1>
+                </div>
+            </div>
+
+            <label for="symptoms" class="field-label">Symptoms</label>
+            <textarea id="symptoms" rows="9" placeholder="Fever, cough, chest pain, fatigue, breathlessness"></textarea>
+
+            <div class="quick-grid" aria-label="Example symptoms">
+                <button class="chip" type="button" data-example="High fever, cough, chest pain, chills, fatigue, phlegm and breathlessness">
+                    <span class="app-icon" data-icon="R" aria-hidden="true"></span>
+                    Respiratory
                 </button>
-                <div id="voiceStatus"></div>
-                
-                <button id="analyzeBtn" class="btn-primary">
-                    <i class="fas fa-magnifying-glass-chart"></i> Analyze Symptoms
+                <button class="chip" type="button" data-example="High fever, cough, tiredness, loss of taste and loss of smell">
+                    <span class="app-icon" data-icon="C" aria-hidden="true"></span>
+                    COVID
                 </button>
+                <button class="chip" type="button" data-example="Severe headache, nausea, acidity, stiff neck and visual disturbances">
+                    <span class="app-icon" data-icon="M" aria-hidden="true"></span>
+                    Migraine
+                </button>
+                <button class="chip" type="button" data-example="Chest pain, breathlessness, sweating and vomiting">
+                    <span class="app-icon" data-icon="H" aria-hidden="true"></span>
+                    Chest Pain
+                </button>
+                <button class="chip" type="button" data-example="Fall injury, swelling, visible deformity, severe pain and inability to bear weight in lower leg">
+                    <span class="app-icon" data-icon="F" aria-hidden="true"></span>
+                    Fracture
+                </button>
+            </div>
 
-                <div class="examples">
-                    <p><strong>Quick examples:</strong></p>
-                    <button class="pill" onclick="fillExample('High fever, cough, chest pain, chills, fatigue, phlegm and breathlessness')">Respiratory</button>
-                    <button class="pill" onclick="fillExample('Severe headache, nausea, acidity, stiff neck and visual disturbances')">Migraine</button>
-                    <button class="pill" onclick="fillExample('Chest pain, breathlessness, sweating and vomiting')">Chest Pain</button>
+            <div class="action-stack">
+                <button id="analyzeBtn" class="primary-action" type="button">
+                    <span class="app-icon" data-icon="A" aria-hidden="true"></span>
+                    Analyze Case
+                </button>
+                <button id="voiceBtn" class="secondary-action" type="button">
+                    <span class="app-icon" data-icon="V" aria-hidden="true"></span>
+                    Voice
+                </button>
+            </div>
+            <div id="voiceStatus" class="voice-status" aria-live="polite"></div>
+
+            <div class="intake-footer">
+                <div>
+                    <span>42</span>
+                    <small>diseases</small>
                 </div>
-            </section>
-
-            <section id="loadingSection" style="display: none;">
-                <div class="loading">
-                    <div class="spinner"></div>
-                    <p>Analyzing your symptoms...</p>
+                <div>
+                    <span>134</span>
+                    <small>symptoms</small>
                 </div>
-            </section>
-
-            <section id="resultsSection" style="display: none;">
-                <div class="panel">
-                    <h2><i class="fas fa-file-medical"></i> Diagnosis Report</h2>
-                    
-                    <div class="diagnosis-card">
-                        <p class="label">Primary Diagnosis</p>
-                        <h3 id="diagnosisName">-</h3>
-                    </div>
-
-                    <div class="stats-row">
-                        <div class="stat">
-                            <i class="fas fa-chart-line"></i>
-                            <div>
-                                <p>Confidence</p>
-                                <h4 id="confidenceScore">-</h4>
-                            </div>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-exclamation-triangle"></i>
-                            <div>
-                                <p>Urgency</p>
-                                <h4 id="urgencyBadge">-</h4>
-                            </div>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-clipboard-check"></i>
-                            <div>
-                                <p>Evidence</p>
-                                <h4 id="evidenceCount">-</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="section">
-                        <h4><i class="fas fa-list-check"></i> Matched Symptoms</h4>
-                        <div id="symptomsList"></div>
-                    </div>
-
-                    <div class="section action-box">
-                        <h4><i class="fas fa-clipboard-list"></i> Recommended Action</h4>
-                        <p id="actionText">-</p>
-                    </div>
-
-                    <div class="section">
-                        <h4><i class="fas fa-ranking-star"></i> Alternative Diagnoses</h4>
-                        <div id="predictionsList"></div>
-                    </div>
-
-                    <div class="disclaimer">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <p><strong>Medical disclaimer:</strong> This is an educational AI-assisted preliminary diagnosis. Always consult a qualified healthcare professional.</p>
-                    </div>
-
-                    <div class="result-actions">
-                        <button onclick="newAnalysis()" class="btn-secondary">
-                            <i class="fas fa-rotate-left"></i> New Analysis
-                        </button>
-                        <button onclick="printReport()" class="btn-primary btn-inline">
-                            <i class="fas fa-print"></i> Print Report
-                        </button>
-                    </div>
-
+                <div>
+                    <span id="ehrMiniStatus">--</span>
+                    <small>evidence</small>
                 </div>
-            </section>
-        </div>
+                <div>
+                    <span id="fractureMiniStatus">--</span>
+                    <small>fracture</small>
+                </div>
+            </div>
+        </section>
+
+        <section class="results-panel" id="resultsSection" aria-label="Diagnosis output">
+            <div id="emptyState" class="empty-state">
+                <span class="app-icon" data-icon="N" aria-hidden="true"></span>
+                <h2>No Case Analyzed</h2>
+                <p>Results will appear here.</p>
+            </div>
+
+            <div id="loadingSection" class="loading-state" hidden>
+                <div class="pulse-loader"></div>
+                <strong>Analyzing case</strong>
+            </div>
+
+            <div id="resultContent" class="result-content" hidden>
+                <div class="result-header">
+                    <div>
+                        <p class="eyebrow">Primary Diagnosis</p>
+                        <h2 id="diagnosisName">-</h2>
+                    </div>
+                    <span id="urgencyBadge" class="urgency-badge">-</span>
+                </div>
+
+                <div class="metric-strip">
+                    <div>
+                        <span>Confidence</span>
+                        <strong id="confidenceScore">-</strong>
+                    </div>
+                    <div>
+                        <span>Matched Symptoms</span>
+                        <strong id="evidenceCount">-</strong>
+                    </div>
+                    <div>
+                        <span>Reference Cases</span>
+                        <strong id="caseCount">-</strong>
+                    </div>
+                </div>
+
+                <section class="result-section">
+                    <div class="section-title">
+                        <span class="app-icon" data-icon="OK" aria-hidden="true"></span>
+                        <h3>Matched Symptoms</h3>
+                    </div>
+                    <div id="symptomsList" class="tag-list"></div>
+                </section>
+
+                <section class="result-section">
+                    <div class="section-title">
+                        <span class="app-icon" data-icon="DB" aria-hidden="true"></span>
+                        <h3>Evidence</h3>
+                    </div>
+                    <div id="ehrEvidence" class="evidence-layout"></div>
+                </section>
+
+                <section class="result-section recommendation">
+                    <div class="section-title">
+                        <span class="app-icon" data-icon="RX" aria-hidden="true"></span>
+                        <h3>Recommended Action</h3>
+                    </div>
+                    <p id="actionText">-</p>
+                </section>
+
+                <section class="result-section">
+                    <div class="section-title">
+                        <span class="app-icon" data-icon="ALT" aria-hidden="true"></span>
+                        <h3>Alternative Diagnoses</h3>
+                    </div>
+                    <div id="predictionsList" class="prediction-list"></div>
+                </section>
+
+                <div class="disclaimer">
+                    <span class="app-icon" data-icon="!" aria-hidden="true"></span>
+                    <p><strong>Medical disclaimer:</strong> Educational preliminary output only. Consult a qualified healthcare professional.</p>
+                </div>
+
+                <div class="result-actions">
+                    <button id="newAnalysisBtn" class="secondary-action" type="button">
+                        <span class="app-icon" data-icon="N" aria-hidden="true"></span>
+                        New
+                    </button>
+                    <button id="printBtn" class="primary-action compact" type="button">
+                        <span class="app-icon" data-icon="P" aria-hidden="true"></span>
+                        Print
+                    </button>
+                </div>
+            </div>
+        </section>
     </main>
-
-    <footer class="footer">
-        <p>&copy; 2025 MedAI Diagnosis Assistant. Educational purposes only.</p>
-    </footer>
 
     <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 </body>

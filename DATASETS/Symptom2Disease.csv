@@ -1,4 +1,4 @@
-,label,text
+column_1,label,text
 0,Psoriasis,"I have been experiencing a skin rash on my arms, legs, and torso for the past few weeks. It is red, itchy, and covered in dry, scaly patches."
 1,Psoriasis,"My skin has been peeling, especially on my knees, elbows, and scalp. This peeling is often accompanied by a burning or stinging sensation."
 2,Psoriasis,"I have been experiencing joint pain in my fingers, wrists, and knees. The pain is often achy and throbbing, and it gets worse when I move my joints."
@@ -40,13 +40,13 @@
 38,Psoriasis,I've had trouble sleeping because of the itching and pain produced by the rash. My nails have little dents. I am also experiencing skin peeling in different parts of my body.
 39,Psoriasis,"My skin is peeling in places, especially on my knees, elbows, and arms. This peeling is often accompanied by a painful or burning sensation. I am also developing small dents on my nails, which is really concerning."
 40,Psoriasis,"My skin has a silvery layer over it, especially on my back and arms. This dusting is made up of small scales that peel off readily when rubbed. Also, there are rashes all over my body."
-41,Psoriasis,"My arms, face and back are all red and irritated. It is frequently irritating and unpleasant. My nails have a strange inflammation and have developed small dents. I have never seen anything like this."
+41,Psoriasis,"My arms, face and back are all red and irritated. It is frequently irritating and unpleasant. My nails have a strange inflammation and have developed small dents. I have never seen anything like this."
 42,Psoriasis,"I've had trouble sleeping because of the itching and pain produced by the rash. My nails have little dents, which is really alarming. Moreover, my joints pain everyday and I have no idea what is causing it."
 43,Psoriasis,My fingers and soles have pretty thick skin that is cracked severely. These fractures hurt and bleed frequently. The fractures are itchy and covered with scales.
 44,Psoriasis,"My skin has changed from being less sensitive to being more sensitive. My skin has a silvery coating, especially on my back, elbows and knees."
-45,Psoriasis,"My nails are slightly dented. Even my joints are now experiencing excruciating discomfort. My skin has a silver-like powder, especially on my back and elbows. "
-46,Psoriasis,"I've had trouble falling asleep because of the rash's pain and itching. The skin on my fingers are starting to peel off. My nails have a few tiny cracks, which is really worrying. "
-47,Psoriasis,"My joints are experiencing an unusual discomfort. Additionally, I've experienced weird skin peeling in various places on my body. I'm concerned that something is wrong with my body. "
+45,Psoriasis,"My nails are slightly dented. Even my joints are now experiencing excruciating discomfort. My skin has a silver-like powder, especially on my back and elbows."
+46,Psoriasis,"I've had trouble falling asleep because of the rash's pain and itching. The skin on my fingers are starting to peel off. My nails have a few tiny cracks, which is really worrying."
+47,Psoriasis,"My joints are experiencing an unusual discomfort. Additionally, I've experienced weird skin peeling in various places on my body. I'm concerned that something is wrong with my body."
 48,Psoriasis,"I am starting to have rashes on my arms and neck. The rash often bleeds and hurts when I scratch it. I have also developed small dents in my nails, which is very strange."
 49,Psoriasis,"Because of dry, flaky areas on my skin, I am prone to infections. My joints are in extreme pain . My knees and elbows' skin are starting to peel off."
 50,Varicose Veins,"I have a rash on my legs that is causing a lot of discomforts. It seems there is a cramp and I can see prominent veins on the calf. Also, I have been feeling very tired and fatigued in the past couple of days."
@@ -249,25 +249,25 @@
 247,Impetigo,"I've had rashes on my face. I'm developing little sores around my nose, and a yellow ooze is frequently oozing from them. The lesions have become even more painful."
 248,Impetigo,I'm feeling quite ill. I have a high fever and a headache. Rashes appeared on my arms and face. I'm quite concerned about this. I saw red sores around my nose and lips today.
 249,Impetigo,"The rashes on my face are not healing. I tried some medications but it is not helping much. Recently, I noticed small sores near my nose. They are painful and very difficult to handle."
-250,Dengue,I am facing severe joint pain and vomitting. I have developed a skin rash that covers my entire body and is accompanied by intense itching. 
+250,Dengue,I am facing severe joint pain and vomitting. I have developed a skin rash that covers my entire body and is accompanied by intense itching.
 251,Dengue,"I have been experiencing chills and shivering, despite being in a warm environment. My back pains all the time and there are red spots on my arms."
 252,Dengue,"I have been experiencing severe joint pain that makes it difficult for me to move and perform my daily activities. Also, I have lost my apetite because of which I feel weak."
 253,Dengue,I have been vomiting frequently and have lost my appetite as a result. My joints and back pain all the time.
 254,Dengue,I have a high fever accompanied with severe headache and body pain. I experince chills every night. There is a distinct pain behind my eyes too.
-255,Dengue,"I have been feeling extremely tired and fatigued, and I have no energy to do anything. I have developed rashes on my neck, which itch upon touching. "
-256,Dengue,I have been experiencing a severe headache that is accompanied by pain behind my eyes. I have lost my apetite and experience chills every night. 
+255,Dengue,"I have been feeling extremely tired and fatigued, and I have no energy to do anything. I have developed rashes on my neck, which itch upon touching."
+256,Dengue,I have been experiencing a severe headache that is accompanied by pain behind my eyes. I have lost my apetite and experience chills every night.
 257,Dengue,I have been feeling nauseous and have a constant urge to vomit. There is a strong pain behind my eyes and there are small red spots all over my arms.
-258,Dengue,I have developed red spots on my body that are itchy and inflamed. I am also experiencing high fever along with chills and shivering. 
-259,Dengue,I have been experiencing muscle pain that makes it difficult for me to move around. I have lost my apetite and feel vomiting. My legs and back pain a lot. 
+258,Dengue,I have developed red spots on my body that are itchy and inflamed. I am also experiencing high fever along with chills and shivering.
+259,Dengue,I have been experiencing muscle pain that makes it difficult for me to move around. I have lost my apetite and feel vomiting. My legs and back pain a lot.
 260,Dengue,"I have been experiencing back pain that is worse when I sit or stand for a long time. Also, there are rashes all over my body. There is a pain behind my eyes too."
 261,Dengue,The skin rash I have developed is accompanied by redness and swelling. I don’t feel well as I have severe fever accompanied with body pain.
 262,Dengue,The chills and shivering I have been experiencing are accompanied by a feeling of coldness and high fever. I have also developed rashes on my arms and red spots on my neck.
-263,Dengue,"The joint pain I have been experiencing is severe and feels like a constant ache. My head aches most of the time and I am starting to develope mild fever, accompanied with chills. "
+263,Dengue,"The joint pain I have been experiencing is severe and feels like a constant ache. My head aches most of the time and I am starting to develope mild fever, accompanied with chills."
 264,Dengue,The vomiting I have been experiencing is accompanied by stomach cramps and dizziness. I have lost my apetite and feel weak as a result. There is a pain behind my eyes too.
-265,Dengue,The high fever I have been experiencing is accompanied by sweating and weakness. My muscles pain as a result I cannot work all day. 
-266,Dengue,"The fatigue I have been feeling is extreme and makes it difficult for me to perform even basic tasks. I feel vomitting and developed rashes on my arms, neck and legs. "
+265,Dengue,The high fever I have been experiencing is accompanied by sweating and weakness. My muscles pain as a result I cannot work all day.
+266,Dengue,"The fatigue I have been feeling is extreme and makes it difficult for me to perform even basic tasks. I feel vomitting and developed rashes on my arms, neck and legs."
 267,Dengue,The headache I have been experiencing is severe and is accompanied by a feeling of pressure in my head. I have mild fever along with headache. There are small red spots on my back.
-268,Dengue,The nausea I have been feeling is accompanied by a loss of appetite and feeling of unease. There is a distinct pain in my back and muscles pain too. 
+268,Dengue,The nausea I have been feeling is accompanied by a loss of appetite and feeling of unease. There is a distinct pain in my back and muscles pain too.
 269,Dengue,The muscle pain I have been experiencing is severe and feels like a constant ache. There are red spots all over my body and the itching is causing me a lot of discomfort.
 270,Dengue,"I have developed a skin rash that covers my entire body and is accompanied by intense itching. My body pains and I have a mild fever, acompanied with headache and chills."
 271,Dengue,"I'm experiencing extreme body pain, headache and vomiting. I've developed red spots that covers my entire body and causes severe itching."
@@ -275,22 +275,22 @@
 273,Dengue,"I've been suffering from significant joint pain, which makes it difficult for me to walk and carry out my everyday tasks. I've also lost my appetite, which makes me feel weak and feel like vomitting."
 274,Dengue,There is a constant behind my eyes. I have developed red spots on my neck and face and rashes on my arms. My arms and legs pain a lot. . The spots are itchy and uncomfortable and it is worrying me.
 275,Dengue,"I've been feeling sick and feel a strong need to vomit. There is a sharp ache behind my eyes, and swollen red dots all over my back."
-276,Dengue,My shivers and shivering have been accompanied with a sensation of coldness and a very high fever. Rashes on my arms and red patches on my neck have also appeared. 
+276,Dengue,My shivers and shivering have been accompanied with a sensation of coldness and a very high fever. Rashes on my arms and red patches on my neck have also appeared.
 277,Dengue,"I have been suffering from severe joint ache. I feel vomiting most of the time, and I am developing a moderate fever with chills. The fever that doesn't seem to come down even with medication."
 278,Dengue,"The vomiting I've been having has been followed by stomach pains and dizziness. I've lost my appetite and as a result feel weak. My arms, back, neck pain most of the time."
 279,Dengue,I have developed red spots on my arms and legs that are itchy and inflamed. I have been feeling nauseaus and have a constant urge to vomit. This is accomapanied by mild fever.
-280,Dengue,"I have developed a skin rash that covers my entire body. The rash is red and swollen, and is worse in certain areas such as my arms and legs. I have also lost my appetite. "
-281,Dengue,I have been experiencing chills and shivering. There is a strong pain in my back and also behind my eyes. I have also noticed small red spots on my back and neck. 
+280,Dengue,"I have developed a skin rash that covers my entire body. The rash is red and swollen, and is worse in certain areas such as my arms and legs. I have also lost my appetite."
+281,Dengue,I have been experiencing chills and shivering. There is a strong pain in my back and also behind my eyes. I have also noticed small red spots on my back and neck.
 282,Dengue,I have been experiencing severe joint pain that is making my day very difficult. I feel like vomiting all the time and have a mild headache too.
 283,Dengue,"I have been vomiting frequently and have lost my appetite as a result. There are rashes on my skin and my eyes pain, because of which I cannot sleep properly."
 284,Dengue,I have a high fever along with a severe headache. The fever is accompanied by extreme body pain and chills. I am worried about my health and don’t know what to do.
-285,Dengue,"I have been feeling extremely tired and fatigued, and I have no energy to do anything. The fatigue is so severe that I struggle to get out of bed. I have noticed small red spots on my arms and legs. "
+285,Dengue,"I have been feeling extremely tired and fatigued, and I have no energy to do anything. The fatigue is so severe that I struggle to get out of bed. I have noticed small red spots on my arms and legs."
 286,Dengue,I have been experiencing a severe headache that is accompanied by pain behind my eyes. I feel tired and fatigued because of which I cannot work all day. I am worried about my health.
-287,Dengue,"I have been feeling nauseous and have a constant urge to vomit, which is accompanied with mild fever and headache. "
+287,Dengue,"I have been feeling nauseous and have a constant urge to vomit, which is accompanied with mild fever and headache."
 288,Dengue,I have developed rashes on my body that are itchy and. I have lost my appetite and feel very tired all day. I feel something is wrong with my body.
 289,Dengue,"I have been experiencing muscle pain and headache. The muscle pain feels like a constant ache and is worse when I try to use the affected muscles. There are small red spots developing on my face, neck and arms."
-290,Dengue,"My back hurts, and I have rashes on my arms and armpits. The back of my eyeballs hurt a lot. I also have a mild fever, which is making us concerned about my health. "
-291,Dengue,"I am experiencing very high fever and chills every night. It is really concerning me. Moreover, I don’t feel like eating anything and my back, arms, legs pain a lot. There is a strange pain behing my eyes. I can’t do any physical activities. "
+290,Dengue,"My back hurts, and I have rashes on my arms and armpits. The back of my eyeballs hurt a lot. I also have a mild fever, which is making us concerned about my health."
+291,Dengue,"I am experiencing very high fever and chills every night. It is really concerning me. Moreover, I don’t feel like eating anything and my back, arms, legs pain a lot. There is a strange pain behing my eyes. I can’t do any physical activities."
 292,Dengue,"As a result of my regular vomiting, I've lost my appetite. My muscles, joints and back constantly hurt. I am starting to have fever too. I am really worried and not sure what to do."
 293,Dengue,I have been experiencing a severe fever that is accompanied by pain behind my eyes and headache. I feel tired and exhasuted because of which I cannot do any work.
 294,Dengue,"My whole body is paining a lot and I don’t feel like eating anything. I have mild fever and get chills every night. Also, there are some red spots developing on my back and neck."
@@ -325,7 +325,7 @@
 23,Fungal infection,"A rash that appears to be developing throughout my skin has been accompanying my recent bouts of intense itching and discomfort. On my skin, I also have some dischromic spots and little lumps that seem to be appearing everywhere."
 24,Fungal infection,"My skin always itches, and occasionally it becomes quite rough and red. In addition, I occasionally get little pimples that resemble tiny balls and certain spots that are a different colour from the rest of my skin. It severely irritates me and itches."
 25,Fungal infection,"I have a lot of itching all over my skin, and sometimes it gets really red and bumpy. There are also some patches that are different colors than the rest of my skin, and sometimes I get these little bumps that look like little balls. It's really annoying and itchy."
-26,Fungal infection,"I have a pretty irritating itch all over my body, and my skin also has a few red, bumpy areas. I've also had some pimples that resemble small balls and other spots that are a different colour than the rest of my skin. "
+26,Fungal infection,"I have a pretty irritating itch all over my body, and my skin also has a few red, bumpy areas. I've also had some pimples that resemble small balls and other spots that are a different colour than the rest of my skin."
 27,Fungal infection,"I've had a pretty uncomfortable itch all over my body, as well as red and bumpy areas on my skin. There are also certain patches of my skin that are a different hue than the rest of it, and I've had some pimples that resemble little balls."
 28,Fungal infection,"I've been having this really annoying itch all over my body, and I have red and bumpy spots on my skin too. There are also some areas that are a different color than the rest of my skin, and I've had some bumps that look like little balls."
 29,Fungal infection,"I've had a pretty uncomfortable itch all over my body, as well as red and bumpy areas on my skin. There are also certain patches of my epidermis with a distinct shade than the rest of it, and I've had some pimples that resemble little balls."
@@ -344,11 +344,11 @@
 42,Fungal infection,"I've been having this constant itch and there are these red and bumpy spots on my skin. There are also some patches that are a different color than the rest of my skin, and I've had some bumps that are kind of like little lumps."
 43,Fungal infection,"There are red, bumpy areas on my skin, and I've been scratching myself nonstop. Additionally, I have some bumps that resemble little lumps and some spots that are a different shade of skin than the rest of my body."
 44,Fungal infection,"I've had a lot of itching on my skin, which occasionally turns into a rash. There are also some odd patches of skin that are a different hue than the rest of me, and I occasionally get little pimples that resemble nodules."
-45,Fungal infection,"I've had a tendency of itching on my skin, that frequently turns into a rash. There are also some strange patches of skin that are a different tone than the rest of my skin, and I regularly get little lumps that mimic nodules."
+45,Fungal infection,"I've had a tendency of itching on my skin, that frequently turns into a rash. There are also some strange patches of skin that are a different tone than the rest of my skin, and I regularly get little lumps that mimic nodules."
 46,Fungal infection,"I've been experiencing a lot of itching on my skin, and sometimes it turns into a rash. There are also some strange patches of skin that are a different color than the rest of me, and sometimes I get little bumps that look like nodules."
 47,Fungal infection,"My body has been itching terribly all over, and there are now red spots everywhere. Some of the patches also differ in tone from my natural complexion. And there are these lumps or pimples that have appeared on my skin."
-48,Fungal infection,"My skin has been really itchy lately, and it occasionally erupts into a rash. In addition, I have a few odd areas of skin that are a different coloration from the rest of me, and occasionally I develop little bumps that look  like nodules."
-49,Fungal infection,There are now red blotches all over my body where I have been itching horribly all over. A few of the patches also differ in complexion from my natural skin. And these lumps or bumps have developed on my skin.
+48,Fungal infection,"My skin has been really itchy lately, and it occasionally erupts into a rash. In addition, I have a few odd areas of skin that are a different coloration from the rest of me, and occasionally I develop little bumps that look like nodules."
+49,Fungal infection,There are now red blotches all over my body where I have been itching horribly all over. A few of the patches also differ in complexion from my natural skin. And these lumps or bumps have developed on my skin.
 50,Common Cold,"I can't stop sneezing and my nose is really runny. I'm also really cold and tired all the time, and I've been coughing a lot. My fever is really high too, like way above normal."
 51,Common Cold,"My nose is extremely runny, and I can't seem to stop sneezing. In addition, I constantly feel cold, exhausted, and I've been coughing a lot. My fever is also really high far above normal."
 52,Common Cold,"I've been sneezing nonstop and I can't seem to shake this chill. I'm feeling really weak and tired, and my cough won't go away. My fever is really high"
@@ -390,7 +390,7 @@
 88,Common Cold,"I've been experiencing severe weariness and a sickly sensation. My throat has been really painful and I've had a fairly severe cough. My nose has been quite stuffy, and I've had significant sinus pressure. I'm really miserable and extremely exhausted."
 89,Common Cold,I've been feeling really sick and I've had a lot of fatigue. I've had a really bad cough and my throat has been really sore. I've had a lot of sinus pressure and my nose has been really congested. I just feel really run down and miserable.
 90,Common Cold,"I've been quite exhausted and ill. My throat has been quite painful, and I've had a fairly nasty cough. I've got a lot of chills and a pretty high temperature. Simply put, I feel really run down and feeble."
-91,Common Cold,I've been really weary and ill. I've been suffering from a severe cough and sore throat. I've got a lot of chills and a pretty high temperature. I simply feel tired and run down.
+91,Common Cold,I've been really weary and ill. I've been suffering from a severe cough and sore throat. I've got a lot of chills and a pretty high temperature. I simply feel tired and run down.
 92,Common Cold,"I can't quit sneezing, and my nose is running. I'm also constantly chilly and exhausted, and I've been coughing a lot. My fever is also really high, well above usual."
 93,Common Cold,"I've been feeling awful, with a lot of congestion and a runny nose. I've been coughing a lot and having a lot of chest pain. My fever has been really high, and I've been experiencing severe muscular discomfort."
 94,Common Cold,"My neck is swollen, and I'm exhausted. My throat is scratchy, and my eyes are burning red. My nose is really clogged, and I am experiencing facial pressure. My chest hurts, and I'm unable to smell anything."
@@ -451,7 +451,7 @@
 149,Pneumonia,"I've recently had chills, exhaustion, a cough, a high temperature, and breathing issues. I've been perspiring a lot and generally feeling weak and ill. I've had some quite thick and black phlegm. My heart has been racing quite quickly."
 150,Dimorphic Hemorrhoids,"Constipation, discomfort with bowel motions, and anus pain have all recently been bothering me. My anus has been quite inflamed, and my stool has been extremely bloody."
 151,Dimorphic Hemorrhoids,"Lately I've been experiencing constipation, pain during bowel movements, and pain in my anus. My stool has also been really bloody and my anus has been really irritated."
-152,Dimorphic Hemorrhoids,"Recently, I've been having a lot of difficulty using the restroom. My bowel movements have been extremely uncomfortable and difficult for me to have.  My anus has been quite inflamed, and my stool has been extremely bloody."
+152,Dimorphic Hemorrhoids,"Recently, I've been having a lot of difficulty using the restroom. My bowel movements have been extremely uncomfortable and difficult for me to have. My anus has been quite inflamed, and my stool has been extremely bloody."
 153,Dimorphic Hemorrhoids,"I've been having a lot of trouble going to the bathroom lately. It's really painful when I do, and there's been some blood in my stool. I've also been having some pain and irritation around my anus."
 154,Dimorphic Hemorrhoids,"Recently, I've been having a lot of difficulty using the restroom. When I do, it hurts a lot, and I've noticed some blood in my stool. Around my anus, I've also been experiencing some discomfort and itching."
 155,Dimorphic Hemorrhoids,"Lately I've been really constipated, and it's been really painful when I do go to the bathroom. I've also noticed some blood in my stool, and my anus has been really irritated."
@@ -580,12 +580,12 @@
 278,Acne,I awoke this morning to see that I had a horrible rash all over my skin. There are several blackheads and pimples loaded with pus. My skin has also been scurrying about.
 279,Acne,I've just developed a skin rash with several pus-filled pimples and blackheads. My skin has also been quite sensitive.
 280,Acne,"A skin rash with several pus-filled pimples and blackheads has been bothering me lately. Additionally, my skin has been scurring a lot."
-281,Acne,"I woke up this morning to find that I have a terrible rash all over my body. Blackheads and pus-filled pimples are all over the place. Additionally, my skin has been changing a lot."
-282,Acne,"When I awoke this morning, I realised that I had a severe rash all over my body. There are many pus-filled pimples and blackheads all over the place. My skin has also been scurring a lot."
+281,Acne,"I woke up this morning to find that I have a terrible rash all over my body. Blackheads and pus-filled pimples are all over the place. Additionally, my skin has been changing a lot."
+282,Acne,"When I awoke this morning, I realised that I had a severe rash all over my body. There are many pus-filled pimples and blackheads all over the place. My skin has also been scurring a lot."
 283,Acne,I've recently developed a terrible rash on my skin. It's riddled with blackheads and pus-filled pimples. My skin has also been scurrying about.
 284,Acne,I awoke this morning to see a horrible rash on my skin. There are several blackheads and pimples loaded with pus. My skin has also been scurrying about.
 285,Acne,"This morning when I woke up, I discovered an extremely bad rash on my skin. There are several pus-filled pimples and blackheads all around. My skin has also been moving around a lot."
-286,Acne,I've recently been battling a pretty itchy rash on my skin. There are pus-filled pimples and blackheads all over it. My skin has also been scurring a lot.
+286,Acne,I've recently been battling a pretty itchy rash on my skin. There are pus-filled pimples and blackheads all over it. My skin has also been scurring a lot.
 287,Acne,"This morning, I realized that I had a major rash all over my body. There are lots of pimples filled with pus and blackheads everywhere, and my skin has been scurrying a lot."
 288,Acne,"I woke up today to find that I had a major rash all over my body. There are lots of pimples filled with pus and blackheads everywhere, and my skin has been scurrying a lot."
 289,Acne,"I woke up this morning to find that I had a major rash all over my body. It's covered in pus-filled pimples and blackheads, and my skin has been scurrying a lot"
@@ -627,11 +627,11 @@
 25,Bronchial Asthma,"Hey, I've had a dry cough, breathing difficulties, as well as a high fever. a lot of mucous is being produced, and I feel incredibly weak and tired."""
 26,Bronchial Asthma,"Recently, I have had a number of concerning symptoms, including a dry cough, impaired breathing, a high fever, and a lot of mucus. I also feel very weak and tired."
 27,Bronchial Asthma,"I am currently dealing with a number of health issues, including a dry cough, difficulty breathing, a high fever, and increased mucus production. I am also feeling very weak and tired"
-28,Bronchial Asthma,"its been a week , i am suffering from continious health issues like dry cough  , problems in breathing , weakness throughout the day."
+28,Bronchial Asthma,"its been a week , i am suffering from continious health issues like dry cough , problems in breathing , weakness throughout the day."
 29,Bronchial Asthma,"Doctor , from couple of days i am not able to brethe propelry , lying on bed due to high fever , lot of mucus gets out . please suggest me some medicines."
 30,Bronchial Asthma,"I've been experiencing shortness of breath, a persistent cough, and a high fever. I've also been producing a lot of thick, mucoid sputum, and I'm feeling so drained and exhausted. It's been so hard to deal with all of this."
-31,Bronchial Asthma," I'm so weak and exhausted, and my fever is through the roof. It's been very difficult to manage all of these symptoms, and I've also been coughing up a lot of mucus. I'm becoming so angry over everything."
-32,Bronchial Asthma," must confess that I've been experiencing shortness of breath, a persistent cough, and a high fever. I've also been producing a lot of thick, mucoid sputum, and I'm feeling quite drained and exhausted. It's all been rather tough to deal with, and I'm feeling quite sick at the moment"
+31,Bronchial Asthma,"I'm so weak and exhausted, and my fever is through the roof. It's been very difficult to manage all of these symptoms, and I've also been coughing up a lot of mucus. I'm becoming so angry over everything."
+32,Bronchial Asthma,"must confess that I've been experiencing shortness of breath, a persistent cough, and a high fever. I've also been producing a lot of thick, mucoid sputum, and I'm feeling quite drained and exhausted. It's all been rather tough to deal with, and I'm feeling quite sick at the moment"
 33,Bronchial Asthma,"I must admit that I have been having a high fever, a persistent cough, and shortness of breath. In addition, I've been coughing up a lot of thick, mucoid saliva and I've been feeling really depleted and worn out."
 34,Bronchial Asthma,"I've been having a tough time with this constant cough, difficulty breathing, and fatigue. My fever is high, and I've been coughing up a lot of thick, mucoid sputum. It's all been rather draining and exhausting, and I'm feeling quite sick at the moment."
 35,Bronchial Asthma,"I've been struggling with a persistent cough, breathing issues, and exhaustion. I've been coughing up a lot of thick, mucoid sputum and have a high fever. All of this has been really tiring and exhausting, and right now I'm feeling rather ill."
@@ -651,8 +651,8 @@
 49,Bronchial Asthma,"I've had ongoing health problems for a week, including a dry cough, breathing difficulties, and general weakness."
 50,Hypertension,"I have been experiencing a headache, chest pain, dizziness, and difficulty maintaining my balance. I also feel like I am having trouble concentrating"
 51,Hypertension,"Along with a headache, chest pain, instability, and balance issues, I've also been feeling dizzy. I also think I'm having problems focusing."
-52,Hypertension,"Along with a head pain, chest pain, instability, and balance issues, I've also been feeling unwell. I also think I'm having problems focusing."
-53,Hypertension,"In addition to a head pain, chest pain, instability, and balance issues, I've already been feeling unwell. I also suppose I'm having issues focusing."
+52,Hypertension,"Along with a head pain, chest pain, instability, and balance issues, I've also been feeling unwell. I also think I'm having problems focusing."
+53,Hypertension,"In addition to a head pain, chest pain, instability, and balance issues, I've already been feeling unwell. I also suppose I'm having issues focusing."
 54,Hypertension,"I've been experiencing balance issues, a headache, chest pain, and dizziness. My ability to concentrate and focus has also been challenging."
 55,Hypertension,"I have been having a headache, chest pain, dizziness, and trouble with my balance. It has also been hard for me to focus and concentrate."
 56,Hypertension,"I've been encountering trouble walking, a headache, chest pain, and dizziness. My concentration skills and focus has also been challenging."
@@ -671,7 +671,7 @@
 69,Hypertension,"I've been experiencing dizziness and shakiness, as well as a loss in my attention span and ability to concentrate."
 70,Hypertension,"I've been experiencing dizziness and anxiousness, as well as a loss in my attention and concentration and ability to concentrate."
 71,Hypertension,"I've had intense aches in my chest, a headache that won't go away, and I've been feeling dizzy and unsteady."
-72,Hypertension,"I've had intense aches in my chest, a head  pain that refuses to go away, and I've been feeling dizzy and unsteady."
+72,Hypertension,"I've had intense aches in my chest, a head pain that refuses to go away, and I've been feeling dizzy and unsteady."
 73,Hypertension,"Along with chest pain, dizziness, and a headache that feels like a narrow zone around my head, I have been having a lot of trouble."
 74,Hypertension,"I have been struggling with a headache that feels like a tight band around my head, along with chest pain and dizziness."
 75,Hypertension,I've been experiencing balance issues in addition to feeling disoriented and dizzy. My headache has also been present nonstop.
@@ -908,14 +908,14 @@
 6,urinary tract infection,"I have been frequently getting sudden strong urges to pee. There is blood in my pee sometimes and it is very foul smelling. I think I have an infection, what do I do?"
 7,urinary tract infection,"I get blood in my pee sometimes and sometimes get nauseous whie peeing. I also have a bad smell in my pee and sometimes get high temperatures at nights, help me"
 8,urinary tract infection,"I have pain in my lower abdomen, and get a buring sensation in my pee. I also have been getting low temperatures since I started to get these other symptoms. I have been weak because of this"
-9,urinary tract infection,There is blood in my urine and I have a low fever. My head hurts almost all the time and I get very strong uncontrollable urges to pee. I have been having pain in lower back also 
+9,urinary tract infection,There is blood in my urine and I have a low fever. My head hurts almost all the time and I get very strong uncontrollable urges to pee. I have been having pain in lower back also
 10,urinary tract infection,I have been having low temperatures and bloody pee since some days now. My head hurts like crazy and pee also smells very foul. I have almost no control on my peeing and get very sudden urges
 11,urinary tract infection,I have pain near my pelvic region and vomit a lot. Sometimes there is blood in my pee and there is almost a very foul smell in my urine.I sometimes get headches and have trouble sleeping due to this
 12,urinary tract infection,"I have to constantly to go the bathroom to relieve myself, but cant seem to empty my bladder. I get these very strong and uncontrollable urges to pee and sometimes get dark or bloody pee"
 13,urinary tract infection,I been having very low temperatues and a very foul smelling pee. The area near my kidneys hurt a lot and I cant seem to hold my pee. I often get these uncontrollable urges
 14,urinary tract infection,"I have to go the bathroom all the time, but the urine output is very low often just a few drops. My stomach hurts a lot and and cant seem to be able to control my urges to pee"
 15,urinary tract infection,My is pee is dark and often bloody and often has a very unfathomable smell. I have been having temperature fluctuations pretty frequently and often am not able to sleep at night because of this
-16,urinary tract infection,I have been having pain in my bladder and have been getting 
+16,urinary tract infection,I have been having pain in my bladder and have been getting
 17,urinary tract infection,I have been urinating with blood in it. I occasionally feel queasy when urinating. I frequently almost have a fever at the same time.
 18,urinary tract infection,"My pee has a strong, unpleasant scent and a hazy appearance. Since these symptoms started appearing, I regularly feel the desire to urinate at night and have been experiencing high temperatures"
 19,urinary tract infection,"My stomach hurts, and I frequently acquire a temperature. I experience sudden, intense cravings to urinate. The discomfort is virtually always there and frequently gets worse at night. My pee nearly always smells bad."
@@ -1024,7 +1024,7 @@
 122,gastroesophageal reflux disease,"Belching and burping are common in me. I often get chest pain that radiates to the back of my neck, my jaw, and my arm. In my chest, there is pressure and stress."
 123,gastroesophageal reflux disease,"I get a sour taste in my mouth all the time, even when there is nothing acidic in my stomach. I often get the hiccups and have a lump in my throat."
 124,gastroesophageal reflux disease,"I periodically find it challenging to swallow food due to the tingling in my throat, bad breath, and bad taste in my mouth."
-125,gastroesophageal reflux disease," regularly have indigestion and heartburn, especially after eating spicy or fatty foods. My chest pain is worse when I hunch over or lie down. Additionally, my chest hurts a lot."
+125,gastroesophageal reflux disease,"regularly have indigestion and heartburn, especially after eating spicy or fatty foods. My chest pain is worse when I hunch over or lie down. Additionally, my chest hurts a lot."
 126,gastroesophageal reflux disease,"I'm not in the mood to eat, and swallowing is difficult. I often have this lingering feeling of fullness even after little meals. My typical symptoms include heartburn, nausea, and throat tingling."
 127,gastroesophageal reflux disease,I frequently get a scratchy voice or a painful throat when I wake up. I have bad breath and a continual sore throat. I also vomit a lot.
 128,gastroesophageal reflux disease,My throat feels as though food or acid is backing up. Lying down only makes my chest pain more. I regularly have heartburn or indigestion after eating and puke up.
@@ -1055,7 +1055,7 @@
 153,drug reaction,I have rashes on my skin and these flake off from time to time. This leaves me prone to infection. My fingers start twitching and sometimes I experience tremors.
 154,drug reaction,I feel very nauseous and have chest pain. Recently I have been experiencing chest pain. I feel very uneasy and often sweat profusely
 155,drug reaction,"I have itching all over my body, and rashes in my chest and back. I get flaky skin from time to time and often this leaves marks on my body."
-156,drug reaction,I have hair loss and there is a significant change in the texture of my hair. I have  dry and itchy sclap and increased dandruff. My skin is also getting very dry
+156,drug reaction,I have hair loss and there is a significant change in the texture of my hair. I have dry and itchy sclap and increased dandruff. My skin is also getting very dry
 157,drug reaction,I am experiencing a decrease in my sex drive and difficulty to fucntion sexually. I feel very light headed and confused and often experince brain fog
 158,drug reaction,I am experiencing changes in my menstrual cycle and unexpected vaginal discharge. I often get mood swings and feel agitated from time to time
 159,drug reaction,I have experinenced significant weight gain and become very obese. I have changes in my appetite and cravings for different foods

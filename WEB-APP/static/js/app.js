@@ -1,12 +1,28 @@
 let recognition = null;
 
+const state = {
+    lastResult: null,
+};
+
 document.addEventListener('DOMContentLoaded', () => {
     setupVoiceInput();
+    setupInteractions();
     checkModelStatus();
+});
 
+function setupInteractions() {
     document.getElementById('analyzeBtn').addEventListener('click', submitDiagnosis);
     document.getElementById('voiceBtn').addEventListener('click', startVoice);
-});
+    document.getElementById('newAnalysisBtn').addEventListener('click', newAnalysis);
+    document.getElementById('printBtn').addEventListener('click', printReport);
+
+    document.querySelectorAll('[data-example]').forEach((button) => {
+        button.addEventListener('click', () => {
+            document.getElementById('symptoms').value = button.dataset.example || '';
+            document.getElementById('symptoms').focus();
+        });
+    });
+}
 
 function setupVoiceInput() {
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -14,7 +30,8 @@ function setupVoiceInput() {
 
     if (!SpeechRecognition) {
         voiceButton.disabled = true;
-        voiceButton.innerHTML = '<i class="fas fa-microphone-slash"></i> Voice not supported';
+        voiceButton.innerHTML = `${iconMarkup('X')} Voice`;
+        updateVoiceStatus('Voice unavailable in this browser. Typed offline intake is available.', 'error', false);
         return;
     }
 
@@ -25,7 +42,7 @@ function setupVoiceInput() {
 
     recognition.onresult = (event) => {
         document.getElementById('symptoms').value = event.results[0][0].transcript;
-        updateVoiceStatus('Voice input captured.', 'success');
+        updateVoiceStatus('Voice captured.', 'success');
     };
 
     recognition.onerror = (event) => {
@@ -33,7 +50,7 @@ function setupVoiceInput() {
     };
 
     recognition.onend = () => {
-        voiceButton.innerHTML = '<i class="fas fa-microphone"></i> Use Voice Input';
+        voiceButton.innerHTML = `${iconMarkup('V')} Voice`;
     };
 }
 
@@ -42,34 +59,48 @@ function checkModelStatus() {
         .then((response) => response.json())
         .then((data) => {
             const status = document.getElementById('modelStatus');
-            status.textContent = data.ready ? data.status : `Prototype mode: ${data.status}`;
-            status.classList.toggle('is-ready', data.ready);
+            const ehrMiniStatus = document.getElementById('ehrMiniStatus');
+            const fractureMiniStatus = document.getElementById('fractureMiniStatus');
+            const featureStatus = [
+                data.ehr_ready ? 'EHR index ready' : 'EHR index unavailable',
+                data.fracture_ready ? 'fracture screen ready' : 'fracture screen unavailable',
+                data.secure_logging ? 'encrypted logs' : 'plain logs',
+            ];
+            const statusText = data.ready
+                ? `${data.status}; ${featureStatus.join('; ')}`
+                : `Prototype mode: ${data.status}`;
+
+            status.innerHTML = `<span class="status-dot"></span><span>${statusText}</span>`;
+            status.classList.toggle('ready', data.ready);
+            ehrMiniStatus.textContent = data.ehr_ready ? 'on' : 'off';
+            fractureMiniStatus.textContent = data.fracture_ready ? 'on' : 'off';
         })
         .catch(() => {
-            document.getElementById('modelStatus').textContent = 'Model status unavailable';
+            document.getElementById('modelStatus').innerHTML = '<span class="status-dot"></span><span>Model status unavailable</span>';
+            document.getElementById('ehrMiniStatus').textContent = 'off';
+            document.getElementById('fractureMiniStatus').textContent = 'off';
         });
 }
 
 function startVoice() {
     if (!recognition) return;
 
-    document.getElementById('voiceBtn').innerHTML = '<i class="fas fa-stop"></i> Listening...';
-    updateVoiceStatus('Listening...', 'info');
+    document.getElementById('voiceBtn').innerHTML = `${iconMarkup('S')} Listening`;
+    updateVoiceStatus('Listening...', 'info', false);
     recognition.start();
 }
 
-function updateVoiceStatus(message, type) {
+function updateVoiceStatus(message, type, autoClear = true) {
     const status = document.getElementById('voiceStatus');
     status.textContent = message;
-    status.className = type;
-    setTimeout(() => {
-        status.textContent = '';
-        status.className = '';
-    }, 3000);
-}
+    status.className = `voice-status ${type}`;
 
-function fillExample(text) {
-    document.getElementById('symptoms').value = text;
+    if (autoClear) {
+        setTimeout(() => {
+            status.textContent = '';
+            status.className = 'voice-status';
+        }, 3000);
+    }
 }
 
 function submitDiagnosis() {
@@ -77,14 +108,13 @@ function submitDiagnosis() {
     const analyzeButton = document.getElementById('analyzeBtn');
 
     if (!symptoms) {
-        alert('Please enter your symptoms.');
+        updateVoiceStatus('Enter symptoms first.', 'error');
+        document.getElementById('symptoms').focus();
         return;
     }
 
+    setLoading(true);
     analyzeButton.disabled = true;
-    document.getElementById('inputSection').style.display = 'none';
-    document.getElementById('loadingSection').style.display = 'block';
-    document.getElementById('resultsSection').style.display = 'none';
 
     fetch('/diagnose', {
         method: 'POST',
@@ -94,105 +124,194 @@ function submitDiagnosis() {
         .then((response) => response.json())
         .then((data) => {
             if (data.error) {
-                alert(data.error);
-                reset();
-                return;
+                throw new Error(data.error);
             }
+            state.lastResult = data;
             showResults(data);
         })
-        .catch(() => {
-            alert('The analysis could not be completed. Please try again.');
-            reset();
+        .catch((error) => {
+            showEmptyState();
+            updateVoiceStatus(error.message || 'Analysis failed.', 'error');
         })
         .finally(() => {
+            setLoading(false);
             analyzeButton.disabled = false;
         });
 }
 
+function setLoading(isLoading) {
+    if (isLoading) {
+        document.getElementById('emptyState').hidden = true;
+        document.getElementById('resultContent').hidden = true;
+    }
+    document.getElementById('loadingSection').hidden = !isLoading;
+}
+
+function showEmptyState() {
+    document.getElementById('emptyState').hidden = false;
+    document.getElementById('loadingSection').hidden = true;
+    document.getElementById('resultContent').hidden = true;
+}
+
 function showResults(data) {
-    document.getElementById('loadingSection').style.display = 'none';
-    document.getElementById('resultsSection').style.display = 'block';
+    document.getElementById('emptyState').hidden = true;
+    document.getElementById('loadingSection').hidden = true;
+    document.getElementById('resultContent').hidden = false;
 
-    document.getElementById('diagnosisName').textContent = data.primary_diagnosis;
-
-    const confidence = document.getElementById('confidenceScore');
-    confidence.textContent = `${data.confidence}%`;
-    confidence.className = data.confidence >= 80 ? 'good' : data.confidence >= 60 ? 'warn' : 'risk';
-
-    document.getElementById('urgencyBadge').textContent = data.urgency_level.toUpperCase();
-    document.getElementById('evidenceCount').textContent = `${data.evidence_count} symptoms`;
-
+    document.getElementById('diagnosisName').textContent = data.primary_diagnosis || '-';
+    renderUrgency(data.urgency_level || 'Needs Review');
+    renderMetrics(data);
     renderSymptoms(data.matched_symptoms || []);
-    document.getElementById('actionText').textContent = data.suggested_action;
+    renderEhrEvidence(data.ehr_evidence || {});
     renderPredictions(data.top_predictions || []);
 
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    document.getElementById('actionText').textContent = data.suggested_action || '-';
+    document.getElementById('resultsSection').scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function renderUrgency(urgency) {
+    const badge = document.getElementById('urgencyBadge');
+    const className = urgency.toLowerCase().replace(/\s+/g, '-');
+    badge.textContent = urgency;
+    badge.className = `urgency-badge ${className}`;
+}
+
+function renderMetrics(data) {
+    const confidence = Number(data.confidence || 0);
+    const confidenceElement = document.getElementById('confidenceScore');
+    const caseCount = data.ehr_evidence?.matched_cases || 0;
+
+    confidenceElement.textContent = `${confidence.toFixed(1).replace('.0', '')}%`;
+    confidenceElement.className = confidence >= 80 ? 'good' : confidence >= 60 ? 'warn' : 'risk';
+    document.getElementById('evidenceCount').textContent = `${data.evidence_count || 0}`;
+    document.getElementById('caseCount').textContent = formatNumber(caseCount);
 }
 
 function renderSymptoms(symptoms) {
-    const symptomsList = document.getElementById('symptomsList');
-    symptomsList.innerHTML = '';
+    const list = document.getElementById('symptomsList');
+    list.innerHTML = '';
 
     if (!symptoms.length) {
-        const empty = document.createElement('p');
-        empty.className = 'empty-state';
-        empty.textContent = 'No exact symptom match found.';
-        symptomsList.appendChild(empty);
+        list.appendChild(emptyMessage('No exact symptom match found.'));
         return;
     }
 
     symptoms.forEach((symptom) => {
-        const tag = document.createElement('div');
-        tag.className = 'symptom-tag';
-
-        const icon = document.createElement('i');
-        icon.className = 'fas fa-check';
-        tag.appendChild(icon);
-        tag.appendChild(document.createTextNode(` ${symptom}`));
-        symptomsList.appendChild(tag);
+        const tag = document.createElement('span');
+        tag.className = 'tag';
+        tag.innerHTML = `${iconMarkup('OK')}<span>${escapeHtml(symptom)}</span>`;
+        list.appendChild(tag);
     });
 }
 
+function renderEhrEvidence(evidence) {
+    const box = document.getElementById('ehrEvidence');
+    box.innerHTML = '';
+
+    const lead = document.createElement('div');
+    lead.className = 'evidence-lead';
+    lead.innerHTML = `<strong>${formatNumber(evidence.matched_cases || 0)}</strong><span>matched reference cases</span>`;
+    box.appendChild(lead);
+
+    const sources = evidence.source_counts || {};
+    const sourceNames = Object.keys(sources);
+    if (sourceNames.length) {
+        const sourceList = document.createElement('div');
+        sourceList.className = 'source-list';
+        sourceNames.forEach((sourceName) => {
+            const source = document.createElement('span');
+            source.className = 'source-pill';
+            source.textContent = `${formatSourceName(sourceName)}: ${formatNumber(sources[sourceName])}`;
+            sourceList.appendChild(source);
+        });
+        box.appendChild(sourceList);
+    }
+
+    const supportingSymptoms = evidence.supporting_symptoms || [];
+    if (supportingSymptoms.length) {
+        const supportGrid = document.createElement('div');
+        supportGrid.className = 'support-grid';
+        supportingSymptoms.forEach((item) => {
+            const row = document.createElement('div');
+            row.className = 'support-row';
+            row.innerHTML = `<span>${escapeHtml(item.symptom)}</span><strong>${formatNumber(item.support_count || 0)}</strong>`;
+            supportGrid.appendChild(row);
+        });
+        box.appendChild(supportGrid);
+    }
+
+    if (evidence.description) {
+        const description = document.createElement('p');
+        description.className = 'reference-text';
+        description.textContent = evidence.description;
+        box.appendChild(description);
+    }
+}
+
 function renderPredictions(predictions) {
-    const predictionsList = document.getElementById('predictionsList');
-    predictionsList.innerHTML = '';
+    const list = document.getElementById('predictionsList');
+    list.innerHTML = '';
 
     if (!predictions.length) {
-        const empty = document.createElement('p');
-        empty.className = 'empty-state';
-        empty.textContent = 'Add more recognizable symptoms to generate ranked predictions.';
-        predictionsList.appendChild(empty);
+        list.appendChild(emptyMessage('No ranked predictions available.'));
         return;
     }
 
     predictions.forEach((prediction, index) => {
-        const item = document.createElement('div');
-        item.className = 'prediction-item';
-
-        const label = document.createElement('span');
-        label.textContent = `${index + 1}. ${prediction.disease}`;
-
-        const score = document.createElement('strong');
-        score.textContent = `${prediction.confidence}%`;
-
-        item.appendChild(label);
-        item.appendChild(score);
-        predictionsList.appendChild(item);
+        const row = document.createElement('div');
+        row.className = 'prediction-row';
+        row.innerHTML = `<span>${index + 1}. ${escapeHtml(prediction.disease)}</span><strong>${formatConfidence(prediction.confidence)}</strong>`;
+        list.appendChild(row);
     });
 }
 
 function newAnalysis() {
-    reset();
+    state.lastResult = null;
     document.getElementById('symptoms').value = '';
-}
-
-function reset() {
-    document.getElementById('inputSection').style.display = 'block';
-    document.getElementById('loadingSection').style.display = 'none';
-    document.getElementById('resultsSection').style.display = 'none';
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    showEmptyState();
+    document.getElementById('symptoms').focus();
 }
 
 function printReport() {
     window.print();
+}
+
+function emptyMessage(text) {
+    const element = document.createElement('p');
+    element.className = 'reference-text';
+    element.textContent = text;
+    return element;
+}
+
+function formatNumber(value) {
+    return Number(value || 0).toLocaleString('en-US');
+}
+
+function formatConfidence(value) {
+    const number = Number(value || 0);
+    return `${number.toFixed(1).replace('.0', '')}%`;
+}
+
+function formatSourceName(name) {
+    const names = {
+        augmented_symptom_reference: 'Augmented',
+        patient_profile: 'Profiles',
+        syditriage: 'Triage',
+        testing: 'Test',
+        training: 'Train',
+    };
+    return names[name] || name.replace(/_/g, ' ');
+}
+
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
+function iconMarkup(label) {
+    return `<span class="app-icon" data-icon="${label}" aria-hidden="true"></span>`;
 }

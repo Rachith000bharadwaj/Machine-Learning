@@ -1,10 +1,58 @@
 {
+  "generated_at": "2026-06-17T21:08:14",
+  "dataset": "DATASETS\\Training.csv",
   "total_diseases": 42,
   "total_symptoms": 134,
   "training_samples": 244,
-  "testing_samples": 61,
-  "training_accuracy": 1.0,
-  "testing_accuracy": 1.0,
+  "validation_samples": 62,
+  "preprocessing": {
+    "original_rows": 306,
+    "rows_after_cleaning": 306,
+    "duplicate_rows_removed": 0,
+    "label_fixes_applied": 0,
+    "rare_classes_removed": 0
+  },
+  "tensorflow_model": {
+    "training": {
+      "accuracy": 0.9754098360655737,
+      "precision": 0.9728646239916732,
+      "recall": 0.9754098360655737,
+      "f1_score": 0.9710692179351775
+    },
+    "validation": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "final_epoch": 22
+  },
+  "baseline_models": {
+    "logistic_regression": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "random_forest": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    },
+    "gradient_boosting": {
+      "accuracy": 0.8709677419354839,
+      "precision": 0.8655913978494624,
+      "recall": 0.8709677419354839,
+      "f1_score": 0.8494623655913978
+    },
+    "support_vector_machine": {
+      "accuracy": 1.0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1_score": 1.0
+    }
+  },
   "diseases": [
     "AIDS",
     "Acne",
@@ -18,7 +66,7 @@
     "Common Cold",
     "Covid",
     "Dengue",
-    "Diabetes ",
+    "Diabetes",
     "Dimorphic hemorrhoids(piles)",
     "Drug Reaction",
     "Fungal infection",
@@ -30,7 +78,7 @@
     "Hepatitis C",
     "Hepatitis D",
     "Hepatitis E",
-    "Hypertension ",
+    "Hypertension",
     "Hyperthyroidism",
     "Hypoglycemia",
     "Hypothyroidism",

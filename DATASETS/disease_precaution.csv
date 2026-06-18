@@ -2,7 +2,7 @@ Disease,Symptom_precaution_0,Symptom_precaution_1,Symptom_precaution_2,Symptom_p
 AIDS,avoid open cuts,wear ppe if possible,consult doctor,follow up
 Acne,bath twice,avoid fatty spicy food,drink plenty of water,avoid too many products
 Alcoholic hepatitis,stop alcohol consumption,consult doctor,medication,follow up
-Allergy,apply calamine,cover area with bandage,null,use ice to compress itching
+Allergy,apply calamine,cover area with bandage,,use ice to compress itching
 Arthritis,exercise,use hot and cold therapy,try acupuncture,massage
 Bronchial Asthma,switch to loose cloth,take deep breaths,get away from the trigger,seek help
 Cervical spondylosis,use a heating pad or cold pack,exercise,take an otc pain reliever,consult a doctor
@@ -11,19 +11,19 @@ Chronic cholestasis,cold baths,anti itch medicine,consult doctor,eat healthy
 Common Cold,drink vitamin c rich drinks,take vapour,avoid cold food,keep fever in check
 Covid,cover mouth,social distancing,wear mask,medication
 Dengue,drink papaya leaf juice,avoid fatty spicy food,keep mosquitos away,keep hydrated
-Diabetes ,have balanced diet,exercise,consult doctor,follow up
+Diabetes,have balanced diet,exercise,consult doctor,follow up
 Dimorphic hemorrhoids(piles),avoid fatty spicy food,consume witch hazel,warm bath with Epsom salt,consume aloe vera juice
 Drug Reaction,stop irritation,consult nearest hospital,stop taking drug,follow up
 Fungal infection,bath twice,use Detol or neem in bathing water,keep the infected area dry,use clean cloths
 GERD,avoid fatty spicy food,avoid lying down after eating,maintain healthy weight,exercise
 Gastroenteritis,stop eating solid food for while,try taking small sips of water,rest,ease back into eating
-Heart attack,call an ambulance,chew aspirin,keep calm,null
+Heart attack,call an ambulance,chew aspirin,keep calm,
 Hepatitis A,Consult nearest hospital,wash hands through,avoid fatty spicy food,medication
 Hepatitis B,consult nearest hospital,vaccination,eat healthy,medication
 Hepatitis C,Consult nearest hospital,vaccination,eat healthy,medication
 Hepatitis D,consult doctor,medication,eat healthy,follow up
 Hepatitis E,stop alcohol consumption,rest,consult doctor,medication
-Hypertension ,meditation,salt baths,reduce stress,get proper sleep
+Hypertension,meditation,salt baths,reduce stress,get proper sleep
 Hyperthyroidism,eat healthy,massage,use lemon balm,take radioactive iodine treatment
 Hypoglycemia,lie down on side,check in pulse,drink sugary drinks,consult doctor
 Hypothyroidism,reduce stress,exercise,eat healthy,get proper sleep
